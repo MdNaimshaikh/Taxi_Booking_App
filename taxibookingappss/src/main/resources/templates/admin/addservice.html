@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .input-group input[type="file"] {
+            padding: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+			
+    <div class="form-container">
+     <a href="dashboard" Style="color:blue"> Return to Admin Home</a><br><br>
+			<h2 th:text="${msg}"></h2>
+        <h2>Service Details</h2>
+        <form  action="addservice" method="POST"  enctype="multipart/form-data">
+            <!-- Service Image -->
+            <div class="input-group">
+                <label for="service-image">Service Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <!-- Service Title -->
+            <div class="input-group">
+                <label for="service-title">Service Title</label>
+                <input type="text" id="title" name="title"  placeholder="Enter service title" required>
+               
+            </div>
+
+            <!-- Service Description -->
+            <div class="input-group">
+                <label for="service-description">Service Description</label>
+                <textarea id="service-description" name="description" placeholder="Enter a description of the service" required></textarea>
+            </div>
+
+            <button type="submit">Submit Service</button>
+        </form>
+
+        <div class="form-footer">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+			<h1>Welcome in Cars Section </h1><br><br>
+			
+			
+					  <h3 th:text="${msg}"></h3><br><br>
+
+			<form action="carsupload" method="post" enctype="multipart/form-data">
+			<input type="text" name="title" placeholder="Enter Title" ><br><br>
+			<input type="file" id="image" name="image" ><br><br>
+			<button>Submit</button>
+		
+			
+			</form>
+
+</body>
+</html>

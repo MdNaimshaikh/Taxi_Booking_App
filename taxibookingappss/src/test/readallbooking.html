@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		
+		<table style="color:red" border="1">
+		
+		<thead>
+		
+		<tr>
+		
+		<th>Id</th>
+		<th>name</th>
+		<th>source</th>
+		<th>email</th>
+		<th>destination</th>
+		<th>date</th>
+		<th>comfort</th>
+		<th>adult</th>
+		<th>children</th>
+		<th>message</th>
+		</tr>
+		
+		</thead>
+		<tbody>
+		
+		<tr th:each="  booking  : ${allbookings}">
+		
+		
+		<td th:text="${booking.id}"></td>
+		<td th:text="${booking.name}"></td>
+		<td th:text="${booking.source}"></td>
+		<td th:text="${booking.email}"></td>
+		<td th:text="${booking.destination}"></td>
+		<td th:text="${booking.date}"></td>
+		<td th:text="${booking.comfort}"></td>
+		<td th:text="${booking.adult}"></td>
+		<td th:text="${booking.children}"></td>
+		<td th:text="${booking.message}"></td>
+		
+		</tr>
+		</tbody>
+		</table>
+</body>
+</html>

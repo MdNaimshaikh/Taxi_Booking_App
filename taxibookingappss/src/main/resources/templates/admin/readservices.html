@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Management</title>
+
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            color: red;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        /* Table heading color set to black */
+        th {
+            background-color: #000000;  /* Black background for headers */
+            color: blue;               /* White text for contrast */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light grey for alternate rows */
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+        .image-cell {
+            width: 100px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Link to navigate back to Admin Home -->
+        <a href="dashboard" class="btn btn-primary">Return to Admin Home</a><br><br>
+
+        <h3 th:text="${message}"></h3><br><br>
+
+        <div class="table-wrapper">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="services : ${readservices}">
+                        <td th:text="${services.id}"></td>
+                        <td class="image-cell"><img th:src="@{${services.image}}" alt="Service Image" class="img-fluid" style="max-width: 100%;"></td>
+                        <td th:text="${services.title}"></td>
+                        <td th:text="${services.description}"></td>
+                        <td>
+                            <a th:href="@{/admin/deleteservices/{id} (id=${services.id})}" class="btn-delete">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Link to Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
